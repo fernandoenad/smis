@@ -88,7 +88,7 @@ else{
 								$resultCheckEnroll = dbquery("SELECT * FROM studenroll WHERE enrol_stud_no='".$data['stud_no']."' ORDER BY enrol_sy DESC, enrol_no DESC");
 								$dataCheckEnroll = dbarray($resultCheckEnroll);
 								?>
-								<td><?php echo $dataCheckEnroll['enrol_level'];?> - <?php echo $dataCheckEnroll['enrol_section'];?></td>
+								<td><?php echo (isset($dataCheckEnroll['enrol_level']) ? $dataCheckEnroll['enrol_level'] : "");?> - <?php echo (isset($dataCheckEnroll['enrol_section']) ? $dataCheckEnroll['enrol_section'] : "");?></td>
 								<?php
 								$resultEnroll = dbquery("SELECT * FROM studenroll WHERE (enrol_stud_no='".$data['stud_no']."' AND enrol_sy='".$current_sy."') ORDER BY enrol_sy DESC, enrol_no DESC");
 								$rowsEnroll = dbrows($resultEnroll);

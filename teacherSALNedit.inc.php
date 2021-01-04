@@ -79,7 +79,7 @@ $dataTeacher = dbarray($checkTeacher);
 						<?php $checkID = dbquery("select * from teacherids where teacherids_teach_no='".$dataTeacher['teach_no']."'"); ?>
 						<?php $dataID = dbarray($checkID); ?>
 						<?php 
-						if($dataID['teacherids_id']==""){
+						if(!isset($dataID['teacherids_id'])){
 							echo "No ID Added Yet!";
 						?>
 							 Click <a href="teacherIDNew.frm.php?stud_no=<?php echo $_GET['editSALN'];?>" title="Add ID" data-toggle="modal" data-target="#modal-medium" data-backdrop="static" data-keyboard="false">

@@ -682,19 +682,19 @@ $checkTeacherID = $conn->query("select * from teacherids where teacherids_teach_
 $dataTeacherID = $checkTeacherID->fetch_assoc();
 $pdf->SetFont('','',8);
 $pdf->Cell(40,4,"Government Issued ID:",0,0,'L');
-$pdf->Cell(40,4,strtoupper($dataTeacherID['teacherids_id']),'B',0,'L');
+$pdf->Cell(40,4,strtoupper(isset($dataTeacherID['teacherids_id'])? $dataTeacherID['teacherids_id'] : ""),'B',0,'L');
 $pdf->Cell(35,4,"",0,0,'L');
 $pdf->Cell(40,4,"Government Issued ID:",0,0,'L');
 $pdf->Cell(40,4,strtoupper($dataSpouse['teachCont_govid']),'B',1,'L');
 
 $pdf->Cell(40,4,"ID No.:",0,0,'L');
-$pdf->Cell(40,4,strtoupper($dataTeacherID['teacherids_details']),'B',0,'L');
+$pdf->Cell(40,4,strtoupper(isset($dataTeacherID['teacherids_details']) ? $dataTeacherID['teacherids_details'] : ""),'B',0,'L');
 $pdf->Cell(35,4,"",0,0,'L');
 $pdf->Cell(40,4,"ID No.",0,0,'L');
 $pdf->Cell(40,4,strtoupper($dataSpouse['teachCont_idno']),'B',1,'L');
 
 $pdf->Cell(40,4,"Date Issued:",0,0,'L');
-$pdf->Cell(40,4,($dataTeacherID['teacherids_date_issued']==""?"":date('m-d-Y',strtotime($dataTeacherID['teacherids_date_issued'])+8.0*3600)),'B',0,'L');
+$pdf->Cell(40,4,(isset($dataTeacherID['teacherids_date_issued'])?date('m-d-Y',strtotime($dataTeacherID['teacherids_date_issued'])+8.0*3600) : ""),'B',0,'L');
 $pdf->Cell(35,4,"",0,0,'L');
 $pdf->Cell(40,4,"Date Issued:",0,0,'L');
 $pdf->Cell(40,4,($dataSpouse['teachCont_issuedate']=="" || $dataSpouse['teachCont_issuedate']=="0000-00-00" || $dataSpouse['teachCont_issuedate']=="0001-01-01"?"":date('m-d-Y',strtotime($dataSpouse['teachCont_issuedate'])+8.0*3600)),'B',1,'L');

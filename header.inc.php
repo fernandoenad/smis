@@ -156,12 +156,15 @@ if(!isset($_SESSION["user_logged"])){
 		#tick{display:none}
 		#cross{display:none}
 	</style>
+	
 	<!--===========================FreiChat=======START=========================-->
 	<!--	For uninstalling ME , first remove/comment all FreiChat related code i.e below code
 		 Then remove FreiChat tables frei_session & frei_chat if necessary
 			 The best/recommended way is using the module for installation                         -->
-
+	
+	<!--
 	<?php
+	
 	$ses=$_SESSION["userid"];
 
 	if(!function_exists("freichatx_get_hash")){
@@ -184,6 +187,7 @@ if(!isset($_SESSION["user_logged"])){
 		   return 0;
 	}
 	}
+	
 	if($_SESSION["user_role"]==0){}
 	else {
 	?>
@@ -195,7 +199,7 @@ if(!isset($_SESSION["user_logged"])){
 	}
 	?>
 	<!--===========================FreiChatX=======END=========================--> 
-
+	-->
 </head>
 <body>
     <!--[if lt IE 9]>

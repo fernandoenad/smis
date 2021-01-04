@@ -254,7 +254,7 @@ $dataStudent = dbarray($resultStudent);
 							Conducted from (MM/DD/YYYY): &nbsp;<u><strong><?php echo ($from==""?"______":date('m-d-Y',strtotime($from)));?></strong></u> &nbsp;&nbsp;
 							to (MM/DD/YYYY): &nbsp;<u><strong><?php echo ($to==""?"______":date('m-d-Y',strtotime($to)));?></strong></u> &nbsp;&nbsp;
 							SCHOOL: &nbsp;<u><strong><?php echo ($school==""?"______________________________________":$school);?></strong></u> &nbsp;&nbsp;
-							SCHOOL ID: &nbsp;<u><strong><?php echo ($dataRemedial['grade_no']==""?"___________":$current_school_code);?></strong></u><br>
+							SCHOOL ID: &nbsp;<u><strong><?php echo (isset($dataRemedial['grade_no'])? $current_school_code :"___________");?></strong></u><br>
 							</td>
 						</tr>
 						<tr bgcolor="lightgray">

@@ -210,16 +210,7 @@ if(isset($_GET['ua']) && $_GET['ua']=="Yes"){
 }
 ***/
 ?>
-<script>
-    $(document).ready(function({
-    var url = "costam#active"
-     var url2 = url.split('#')[1];
 
-     var script = '#myTab a[href="#'+url2+'"]';
-
-     $(script).tab('show');
-    }));
-</script>
 
 
 

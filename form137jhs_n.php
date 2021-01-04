@@ -141,10 +141,11 @@ $dataStudent = dbarray($resultStudent);
 					<?php
 					$resultCheckSection = dbquery("select * from section where (section_name='".$dataForm137['enrol_section']."' and section_sy='".$dataForm137['enrol_sy']."')");
 					$dataCheckSection = dbarray($resultCheckSection);
-					$checkAdviser = dbquery("SELECT * FROM users WHERE user_no='".$dataCheckSection['section_adviser']."'");
-					$dataAdviser = dbarray($checkAdviser );
+					$section_adviser = (isset($dataCheckSection['section_adviser']) ? $dataCheckSection['section_adviser'] : "");
+					$checkAdviser = dbquery("SELECT * FROM users WHERE user_no='".$section_adviser."'");
+					$dataAdviser = dbarray($checkAdviser);
 					?>
-					Name of Adviser/Teacher: &nbsp;<u><strong><?php echo ($dataAdviser['user_fullname']==""?"<input type=\"text\" style=\"width: 120px; border: 0px; font-weight: bold !important; border-bottom: 1px solid black ; font-size: 10px; text-align: left;\">":($dataAdviser['user_no']=="1"?"TBA":strtoupper($dataAdviser['user_fullname'])));?></strong></u> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+					Name of Adviser/Teacher: &nbsp;<u><strong><?php echo (isset($dataAdviser['user_fullname']) ?"<input type=\"text\" style=\"width: 120px; border: 0px; font-weight: bold !important; border-bottom: 1px solid black ; font-size: 10px; text-align: left;\">":(isset($dataAdviser['user_no']) && $dataAdviser['user_no']=="1"?"TBA":strtoupper(isset($dataAdviser['user_fullname']) ? $dataAdviser['user_fullname'] : "")));?></strong></u> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 					Signature: &nbsp;<u><strong>_____________________</strong></u> 	
 					</td>
 				</tr>
@@ -248,7 +249,7 @@ $dataStudent = dbarray($resultStudent);
 						<?php
 								$resultGrade1 = dbquery("SELECT * FROM grade INNER JOIN class ON grade.grade_class_no=class.class_no INNER JOIN prospectus ON class.class_pros_no=prospectus.pros_no WHERE (grade.grade_stud_no='".$_GET['grade_stud_no']."' and class.class_sy='".$dataForm137['enrol_sy']."' and grade_sem='".$dataGradeOAll['grade_sem']."' and grade_remedialgrade>=60) ORDER BY grade_sem ASC, pros_sort ASC");
 								$dataRemedial = dbarray($resultGrade1);
-								$fulltext = $dataRemedial['grade_notes'];
+								$fulltext = (isset($dataRemedial['grade_notes']) ? $dataRemedial['grade_notes'] : "");
 								$len = strlen($fulltext);
 								$pos_from = strpos($fulltext,"From:");
 								$pos_from = $pos_from+5;

@@ -113,7 +113,7 @@ else{
 							<?php
 							$resultRemarks = dbquery("SELECT * FROM studenroll WHERE enrol_stud_no='".$_GET['showProfile']."' ORDER BY enrol_sy DESC");
 							$dataRemarks = dbarray($resultRemarks);
-							if($dataRemarks['enrol_sy']==$current_sy){
+							if(isset($dataRemarks['enrol_sy']) && $dataRemarks['enrol_sy']==$current_sy){
 								?>
 								<!--
 								<div class="<?php echo (strtoupper($dataRemarks['enrol_remarks'])!="OK"?"alert alert-danger":"alert alert-success");?>" role="alert">
