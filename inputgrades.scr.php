@@ -104,11 +104,11 @@ if(isset($_GET['UpdateStudentGrades']) && $_GET['UpdateStudentGrades']=="Yes"){
 }
 
 if(isset($_GET['UpdateRemedialGrades']) && $_GET['UpdateRemedialGrades']=="Yes"){
-	$grade_no = mysql_escape_string($_POST['grade_no']);
-	$grade_remedialgrade = mysql_escape_string($_POST['grade_remedialgrade']);
-	$grade_recomputedfinalgrade = mysql_escape_string($_POST['grade_recomputedfinalgrade']);
-	$grade_finalremarks = mysql_escape_string($_POST['grade_finalremarks']);
-	$grade_notes = mysql_escape_string($_POST['grade_notes1']." From:".$_POST['grade_notes2']." To:".$_POST['grade_notes3']);
+	$grade_no = $_POST['grade_no'];
+	$grade_remedialgrade = $_POST['grade_remedialgrade'];
+	$grade_recomputedfinalgrade = $_POST['grade_recomputedfinalgrade'];
+	$grade_finalremarks = $_POST['grade_finalremarks'];
+	$grade_notes = $_POST['grade_notes1']." From:".$_POST['grade_notes2']." To:".$_POST['grade_notes3'];
 
 	$result1 = dbquery("UPDATE grade SET grade_remedialgrade='".$grade_remedialgrade."', grade_recomputedfinalgrade='".$grade_recomputedfinalgrade."', grade_finalremarks='".$grade_finalremarks."', grade_notes='".$grade_notes."' WHERE grade_no='".$grade_no."'");	
 	header("Location: ".$_SERVER['HTTP_REFERER']);

@@ -212,7 +212,7 @@
 				}
 				if($rowEnrollJHS>1){
 				?>
-				<a <?php echo ($_SESSION["user_role"]==0?"disabled":"");?>  title="Print JHS Form 137 / Form 10-JHS" href="" class="btn  btn-xs  btn-default" onclick="window.open('form137jhs_<?php echo($dataEnroll['enrol_level']>=10?"o":"n");?>.php?grade_stud_no=<?php echo $_GET['showProfile']; ?>', 'newwindow', 'width=820, height=600'); return false;" Title="Print Form 137A">SF10-JHS <span class="glyphicon glyphicon-print"></span></a>
+				<a <?php echo ($_SESSION["user_role"]==0?"disabled":"");?>  title="Print JHS Form 137 / Form 10-JHS" href="" class="btn  btn-xs  btn-default" onclick="window.open('form137jhs_n.php?grade_stud_no=<?php echo $_GET['showProfile']; ?>', 'newwindow', 'width=820, height=600'); return false;" Title="Print Form 137A">SF10-JHS <span class="glyphicon glyphicon-print"></span></a>
 				<?php
 				}
 				if($rowEnrollSHS>1){
@@ -411,7 +411,7 @@
 										<td align="left"><b><?php echo ($countUnits!=$gradedUnits4?"-":round($aveQ4/$countUnits,0));?></b></td>
 										<td align="left"><b><?php echo ($countUnits!=$gradedUnitsqf?"-":round($aveQf/$countUnits,0));?></b></td>
 										<?php
-										$resultEnrolInfo = dbquery("SELECT * FROM studenroll WHERE (enrol_stud_no='".$_GET['showProfile']."' AND enrol_sy='".$dataEnroll['enrol_sy']."')");
+										$resultEnrolInfo = dbquery("SELECT * FROM studenroll WHERE (enrol_stud_no='".$_GET['showProfile']."' AND enrol_sy='".$dataForm137['enrol_sy']."')");
 										$dataEnrolInfo = dbarray($resultEnrolInfo);
 										?>
 										<td colspan="3"><strong><?php echo ($dataForm137['enrol_status2']=="IRREGULAR"?"CONDITIONAL":$dataForm137['enrol_status2']);?></strong></td>

@@ -1,8 +1,7 @@
 <?php
 require('maincore.php');
 
-?>
-<head>
+?><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<style>
@@ -46,6 +45,7 @@ require('maincore.php');
 	}
 	</style>	
 </head>
+
 <table border="0" cellspacing="0" cellpadding="1" width="1135">
 	<tr>
 		<td width="10%" align="right"><img src="./assets/images/deped_logo.png" width="80"></td>
@@ -181,7 +181,7 @@ require('maincore.php');
 			if($dataBMI['stud_gender']=="MALE"){		
 				$checkBMItbl = dbquery("select * from nut_bmi where (gender='MALE' and months='".$months."')"); 
 				$dataBMItbl = dbarray($checkBMItbl);
-				if($months<=228){
+				if($months<=228 && isset($dataBMItbl)){
 					if($bmi==0){}
 					elseif($bmi<=$dataBMItbl['sw']){
 						$nut_stat="Severely Wasted";
@@ -226,7 +226,7 @@ require('maincore.php');
 				
 				$checkAFHtbl = dbquery("select * from nut_afh where (gender='MALE' and months='".$months."')"); 
 				$datacheckAFHtbl = dbarray($checkAFHtbl);
-				if($months<=228){
+				if($months<=228 && isset($datacheckAFHtbl)){
 					if($height==0){}
 					elseif($height<=$datacheckAFHtbl['ss']){
 						$nut_stath="Severely Stunted";
@@ -273,7 +273,7 @@ require('maincore.php');
 				$months = (int) (($time_difference / $seconds_per_year) * 12);
 				$checkBMItbl = dbquery("select * from nut_bmi where (gender='FEMALE' and months='".$months."')"); 
 				$dataBMItbl = dbarray($checkBMItbl);
-				if($months<=228){
+				if($months<=228 && isset($dataBMItbl)){
 					if($bmi==0){}
 					elseif($bmi<=$dataBMItbl['sw']){
 						$nut_stat="Severely Wasted";
@@ -318,7 +318,7 @@ require('maincore.php');
 				
 				$checkAFHtbl = dbquery("select * from nut_afh where (gender='FEMALE' and months='".$months."')"); 
 				$datacheckAFHtbl = dbarray($checkAFHtbl);
-				if($months<=228){
+				if($months<=228 && isset($datacheckAFHtbl)){
 					if($height==0){}
 					elseif($height<=$datacheckAFHtbl['ss']){
 						$nut_stath="Severely Stunted";
@@ -440,7 +440,7 @@ require('maincore.php');
 			if($dataBMI['stud_gender']=="MALE"){
 				$checkBMItbl = dbquery("select * from nut_bmi where (gender='MALE' and months='".$months."')"); 
 				$dataBMItbl = dbarray($checkBMItbl);
-				if($months<=228){
+				if($months<=228 && isset($dataBMItbl)){
 					if($bmi==0){}
 					elseif($bmi<=$dataBMItbl['sw']){
 						$nut_stat="Severely Wasted";
@@ -485,7 +485,7 @@ require('maincore.php');
 				
 				$checkAFHtbl = dbquery("select * from nut_afh where (gender='MALE' and months='".$months."')"); 
 				$datacheckAFHtbl = dbarray($checkAFHtbl);
-				if($months<=228){
+				if($months<=228 && isset($datacheckAFHtbl)){
 					if($height==0){}
 					elseif($height<=$datacheckAFHtbl['ss']){
 						$nut_stath="Severely Stunted";
@@ -527,7 +527,7 @@ require('maincore.php');
 			else{
 				$checkBMItbl = dbquery("select * from nut_bmi where (gender='FEMALE' and months='".$months."')"); 
 				$dataBMItbl = dbarray($checkBMItbl);
-				if($months<=228){
+				if($months<=228 && isset($dataBMItbl)){
 					if($bmi==0){}
 					elseif($bmi<=$dataBMItbl['sw']){
 						$nut_stat="Severely Wasted";
@@ -572,7 +572,7 @@ require('maincore.php');
 				
 				$checkAFHtbl = dbquery("select * from nut_afh where (gender='FEMALE' and months='".$months."')"); 
 				$datacheckAFHtbl = dbarray($checkAFHtbl);
-				if($months<=228){
+				if($months<=228 && isset($datacheckAFHtbl)){
 					if($height==0){}
 					elseif($height<=$datacheckAFHtbl['ss']){
 						$nut_stath="Severely Stunted";

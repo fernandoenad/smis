@@ -81,17 +81,17 @@ class PDF extends FPDF{
 			else {
 				$gradedUnitsqf+=$dataGrade['pros_unit'];
 			}
-			$this->Cell($w[0],2,$dataGrade['pros_title'],0,0,'L');
-			$this->Cell($w[1],2,substr($dataGrade['pros_desc'],0,37)."...",0,0,'L');
-			$this->Cell($w[2],2,number_format($dataGrade['pros_unit'],2),0,0,'L');
-			$this->Cell($w[3],2,($dataGrade['grade_q1']<60?".":$dataGrade['grade_q1']),0,0,'L');
-			$this->Cell($w[4],2,($dataGrade['grade_q2']<60?".":$dataGrade['grade_q2']),0,0,'L');
-			$this->Cell($w[5],2,($dataGrade['grade_q3']<60?".":$dataGrade['grade_q3']),0,0,'L');
-			$this->Cell($w[6],2,($dataGrade['grade_q4']<60?".":$dataGrade['grade_q4']),0,0,'L');
-			$this->Cell($w[7],2,($dataGrade['grade_final']<60 || $dataGrade['grade_q1']==0 || $dataGrade['grade_q2']==0?".":$dataGrade['grade_final']),0,0,'L');
-			$this->Cell($w[8],2,($dataGrade['grade_q1']<60 || $dataGrade['grade_q2']<60 || $dataGrade['grade_q3']<60 || $dataGrade['grade_q4']<60?".":($dataGrade['grade_final']>=75?"PASSED":"FAILED")),0,0,'L');
+			$this->Cell($w[0],3,$dataGrade['pros_title'],0,0,'L');
+			$this->Cell($w[1],3,substr($dataGrade['pros_desc'],0,37)."...",0,0,'L');
+			$this->Cell($w[2],3,number_format($dataGrade['pros_unit'],2),0,0,'L');
+			$this->Cell($w[3],3,($dataGrade['grade_q1']<60?".":$dataGrade['grade_q1']),0,0,'L');
+			$this->Cell($w[4],3,($dataGrade['grade_q2']<60?".":$dataGrade['grade_q2']),0,0,'L');
+			$this->Cell($w[5],3,($dataGrade['grade_q3']<60?".":$dataGrade['grade_q3']),0,0,'L');
+			$this->Cell($w[6],3,($dataGrade['grade_q4']<60?".":$dataGrade['grade_q4']),0,0,'L');
+			$this->Cell($w[7],3,($dataGrade['grade_final']<60 || $dataGrade['grade_q1']==0 || $dataGrade['grade_q2']==0?".":$dataGrade['grade_final']),0,0,'L');
+			$this->Cell($w[8],3,($dataGrade['grade_q1']<60 || $dataGrade['grade_q2']<60 || $dataGrade['grade_q3']<60 || $dataGrade['grade_q4']<60?".":($dataGrade['grade_final']>=75?"PASSED":"FAILED")),0,0,'L');
 			//$this->Cell($w[8],4,($dataGrade['grade_final']<60?".":($dataGrade['grade_final']>=75?"PASSED":"FAILED")),0,0,'L');
-			$this->Cell($w[9],2,($dataGrade['class_user_name']=="1"?"TBA":mb_convert_encoding($dataGrade['teach_lname'].", ".substr($dataGrade['teach_fname'],0,1).".",'ISO-8859-1', 'UTF-8')),0,'L');
+			$this->Cell($w[9],3,($dataGrade['class_user_name']=="1"?"TBA":mb_convert_encoding($dataGrade['teach_lname'].", ".substr($dataGrade['teach_fname'],0,1).".",'ISO-8859-1', 'UTF-8')),0,'L');
 			$this->Ln();			
 		}
 		$this->Cell(0,3,"_______________________________________________________________________________________________________________",0,1,'C');
@@ -124,22 +124,22 @@ class PDF extends FPDF{
 		
 		$this->SetFont('Courier','',8);
 		while ($schoolDays = dbarray($checkSchoolDays)){
-			$this->Cell($w[0],2,"No. of School Days",0,0,'L');
-			$this->Cell($w[1],2,($schoolDays['sch_firstday']==0?".":date('F d, Y', strtotime($schoolDays['sch_firstday']) + 8.0 * 3600)),0,0,'L');
-			$this->Cell($w[2],2,($schoolDays['sch_m1']==0?".":number_format($schoolDays['sch_m1'],1)),0,0,'L');
-			$this->Cell($w[3],2,($schoolDays['sch_m2']==0?".":number_format($schoolDays['sch_m2'],1)),0,0,'L');
-			$this->Cell($w[4],2,($schoolDays['sch_m3']==0?".":number_format($schoolDays['sch_m3'],1)),0,0,'L');
-			$this->Cell($w[5],2,($schoolDays['sch_m4']==0?".":number_format($schoolDays['sch_m4'],1)),0,0,'L');
-			$this->Cell($w[6],2,($schoolDays['sch_m5']==0?".":number_format($schoolDays['sch_m5'],1)),0,0,'L');
-			$this->Cell($w[7],2,($schoolDays['sch_m6']==0?".":number_format($schoolDays['sch_m6'],1)),0,0,'L');
-			$this->Cell($w[8],2,($schoolDays['sch_m7']==0?".":number_format($schoolDays['sch_m7'],1)),0,0,'L');
-			$this->Cell($w[9],2,($schoolDays['sch_m8']==0?".":number_format($schoolDays['sch_m8'],1)),0,0,'L');
-			$this->Cell($w[10],2,($schoolDays['sch_m9']==0?".":number_format($schoolDays['sch_m9'],1)),0,0,'L');
-			$this->Cell($w[11],2,($schoolDays['sch_m10']==0?".":number_format($schoolDays['sch_m10'],1)),0,0,'L');
-			$this->Cell($w[12],2,($schoolDays['sch_m11']==0?".":number_format($schoolDays['sch_m11'],1)),0,0,'L');
-			$this->Cell($w[13],2,($schoolDays['sch_m12']==0?".":number_format($schoolDays['sch_m12'],1)),0,0,'L');
+			$this->Cell($w[0],3,"No. of School Days",0,0,'L');
+			$this->Cell($w[1],3,($schoolDays['sch_firstday']==0?".":date('F d, Y', strtotime($schoolDays['sch_firstday']) + 8.0 * 3600)),0,0,'L');
+			$this->Cell($w[2],3,($schoolDays['sch_m1']==0?".":number_format($schoolDays['sch_m1'],1)),0,0,'L');
+			$this->Cell($w[3],3,($schoolDays['sch_m2']==0?".":number_format($schoolDays['sch_m2'],1)),0,0,'L');
+			$this->Cell($w[4],3,($schoolDays['sch_m3']==0?".":number_format($schoolDays['sch_m3'],1)),0,0,'L');
+			$this->Cell($w[5],3,($schoolDays['sch_m4']==0?".":number_format($schoolDays['sch_m4'],1)),0,0,'L');
+			$this->Cell($w[6],3,($schoolDays['sch_m5']==0?".":number_format($schoolDays['sch_m5'],1)),0,0,'L');
+			$this->Cell($w[7],3,($schoolDays['sch_m6']==0?".":number_format($schoolDays['sch_m6'],1)),0,0,'L');
+			$this->Cell($w[8],3,($schoolDays['sch_m7']==0?".":number_format($schoolDays['sch_m7'],1)),0,0,'L');
+			$this->Cell($w[9],3,($schoolDays['sch_m8']==0?".":number_format($schoolDays['sch_m8'],1)),0,0,'L');
+			$this->Cell($w[10],3,($schoolDays['sch_m9']==0?".":number_format($schoolDays['sch_m9'],1)),0,0,'L');
+			$this->Cell($w[11],3,($schoolDays['sch_m10']==0?".":number_format($schoolDays['sch_m10'],1)),0,0,'L');
+			$this->Cell($w[12],3,($schoolDays['sch_m11']==0?".":number_format($schoolDays['sch_m11'],1)),0,0,'L');
+			$this->Cell($w[13],3,($schoolDays['sch_m12']==0?".":number_format($schoolDays['sch_m12'],1)),0,0,'L');
 			$total = $schoolDays['sch_m1'] + $schoolDays['sch_m2'] + $schoolDays['sch_m3'] + $schoolDays['sch_m4'] + $schoolDays['sch_m5'] +$schoolDays['sch_m6'] + $schoolDays['sch_m7'] + $schoolDays['sch_m8'] + $schoolDays['sch_m9'] + $schoolDays['sch_m10'] + $schoolDays['sch_m11'] + $schoolDays['sch_m12'];
-			$this->Cell($w[14],2,($total==0?"-":number_format($total,1)),0,'L');
+			$this->Cell($w[14],3,($total==0?"-":number_format($total,1)),0,'L');
 			$this->Ln();
 		}
 		while ($schoolDays = dbarray($checkPresentDays)){

@@ -65,9 +65,9 @@
 						<tr>
 							<td><?php echo $dataEnrollHist['enrol_sy']; ?> - <?php echo $dataEnrollHist['enrol_sy']+1; ?></td>
 							<?php
-								$dataSchoolArray = unserialize($dataEnrollHist['enrol_school']);
+								$dataSchoolArray = (isset($dataEnrollHist['enrol_school']) ? unserialize($dataEnrollHist['enrol_school']) : array("0"=>"-", "1"=>"-", "2"=>"-"));
 							?>
-							<td><small><small><?php echo strtoupper($dataSchoolArray['1']); ?> - <?php echo strtoupper($dataSchoolArray['2']); ?></small></small></td>
+							<td><small><small><?php echo (isset($dataSchoolArray['1']) ? strtoupper($dataSchoolArray['1']) : ""); ?> - <?php echo (isset($dataSchoolArray['2']) ? strtoupper($dataSchoolArray['2']) : ""); ?></small></small></td>
 							<td><?php echo $dataEnrollHist['enrol_level']; ?></td>
 							<td><?php echo strtoupper(($dataEnrollHist['enrol_section']==""?"SYS HIST":$dataEnrollHist['enrol_section'])); ?></td>
 							<td><small><?php echo $dataEnrollHist['enrol_status1']; ?> (<?php echo $dataEnrollHist['enrol_status2']; ?>) </small>

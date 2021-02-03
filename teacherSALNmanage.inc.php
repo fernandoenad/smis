@@ -97,7 +97,7 @@ $data = dbarray($result);
 										$checkUser = dbquery("select * from teacher where teach_no='".$user."'");
 										$dataUser = dbarray($checkUser);
 										?>
-										<td><?php echo $dataUser['teach_lname'];?>, <?php echo substr($dataUser['teach_fname'],0,1);?>.</td>
+										<td><?php echo (isset($dataUser['teach_lname']) ?  $dataUser['teach_lname']: "");?>, <?php echo (isset($dataUser['teach_fname']) ? substr($dataUser['teach_fname'],0,1) : "");?>.</td>
 										<td><?php echo ($dataSALN2['teachSaln_status']==1?"Open":($dataSALN2['teachSaln_status']==2?"In Progress":($dataSALN2['teachSaln_status']==3?"Completed":"-")));?></td>
 										<td>
 											<a href="#"  title="View/Print SALN" class="btn  btn-xs  btn-default" <?php echo ($dataSALN2['teachSaln_status']!=3?"disabled":"");?> onclick="window.open('teacherSALNview.php?teachSaln_no=<?php echo $dataSALN2['teachSaln_no'];?>', 'newwindow', 'width=1024, height=600'); return false;">

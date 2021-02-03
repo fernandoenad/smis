@@ -336,12 +336,14 @@ protected $issetcolor;
 		$this->SetFont('','',8);
 		//$this->SetFillColor(255,0,0);
 		while($dataPersonalProperties = $checkPersonalProperties->fetch_assoc()){
-			$PersonalPropertiesDetails = unserialize($dataPersonalProperties['teachSalnDet_details']);
-			$totalPersonalProperties = $totalPersonalProperties + $dataPersonalProperties['teachSalnDet_cost'];
-			$this->Cell($w[0],4,strtoupper($PersonalPropertiesDetails[0]),1,0,'L');
-			$this->Cell($w[1],4,strtoupper($PersonalPropertiesDetails[1]),1,0,'R');
-			$this->Cell($w[2],4,number_format($dataPersonalProperties['teachSalnDet_cost'],2),1,1,'R');			
-			$counter++;
+			if(isset($dataPersonalProperties['teachSalnDet_details'])){
+				$PersonalPropertiesDetails = unserialize($dataPersonalProperties['teachSalnDet_details']);
+				$totalPersonalProperties = $totalPersonalProperties + $dataPersonalProperties['teachSalnDet_cost'];
+				$this->Cell($w[0],4,strtoupper($PersonalPropertiesDetails[0]),1,0,'L');
+				$this->Cell($w[1],4,strtoupper($PersonalPropertiesDetails[1]),1,0,'R');
+				$this->Cell($w[2],4,number_format($dataPersonalProperties['teachSalnDet_cost'],2),1,1,'R');			
+				$counter++;
+			}
 		}
 		
 		if($counter<4){
@@ -539,7 +541,7 @@ $pdf->Cell(0,3,"",'B',1,'L');
 $pdf->Cell(0,3,"",0,1,'L');
 
 $pdf->SetFont('','BU',10);
-$pdf->Cell(0,4,"UNMARRIED CHILDREN BELOW EIGHTEEN (18) YEARS OF AGE LIVING IN DECLARANT�S  HOUSEHOLD",'',1,'C');
+$pdf->Cell(0,4,"UNMARRIED CHILDREN BELOW EIGHTEEN (18) YEARS OF AGE LIVING IN DECLARANT'S  HOUSEHOLD",'',1,'C');
 $pdf->Cell(0,3,"",0,1,'L');
 
 $dateLimit = ($dataSALN['teachSaln_issueyear']-18)."-01-01";
@@ -558,7 +560,7 @@ $pdf->Cell(0,4,"ASSETS, LIABILITIES AND NETWORTH",'',1,'C');
 $pdf->SetFont('','I',8);
 $pdf->Cell(0,4,"(Including those of the spouse and unmarried children below eighteen (18)",'',1,'C');
 
-$pdf->Cell(0,2,"years of age living in declarant�s household)",'',1,'C');
+$pdf->Cell(0,2,"years of age living in declarant's household)",'',1,'C');
 
 $pdf->SetFont('','B',9);
 $pdf->Cell(0,4,"1. ASSETS",0,1,'L');
@@ -620,7 +622,7 @@ $pdf->Cell(0,4,"BUSINESS INTERESTS AND FINANCIAL CONNECTIONS",0,1,'C');
 $checkBIFC = $conn->query("select * from teachsalndetails where (teachSalnDet_teachSaln_no='".$_GET['teachSaln_no']."' and teachSalnDet_type='4')");
 $countBIFC = $checkBIFC->num_rows;
 $pdf->SetFont('','',7);
-$pdf->Cell(0,4,"(of Declarant /Declarant�s spouse/ Unmarried Children Below Eighteen (18) years of Age Living in Declarant�s Household)",0,1,'C');
+$pdf->Cell(0,4,"(of Declarant /Declarant�s spouse/ Unmarried Children Below Eighteen (18) years of Age Living in Declarant's Household)",0,1,'C');
 
 $pdf->SetFont('','I',9);
 $pdf->Cell(0,2,"[".($countBIFC<1?"X":" ")."] I/We do not have any business interest or financial connection.",'',1,'C');
@@ -682,19 +684,19 @@ $checkTeacherID = $conn->query("select * from teacherids where teacherids_teach_
 $dataTeacherID = $checkTeacherID->fetch_assoc();
 $pdf->SetFont('','',8);
 $pdf->Cell(40,4,"Government Issued ID:",0,0,'L');
-$pdf->Cell(40,4,strtoupper($dataTeacherID['teacherids_id']),'B',0,'L');
+$pdf->Cell(40,4,strtoupper(isset($dataTeacherID['teacherids_id'])? $dataTeacherID['teacherids_id'] : ""),'B',0,'L');
 $pdf->Cell(35,4,"",0,0,'L');
 $pdf->Cell(40,4,"Government Issued ID:",0,0,'L');
 $pdf->Cell(40,4,strtoupper($dataSpouse['teachCont_govid']),'B',1,'L');
 
 $pdf->Cell(40,4,"ID No.:",0,0,'L');
-$pdf->Cell(40,4,strtoupper($dataTeacherID['teacherids_details']),'B',0,'L');
+$pdf->Cell(40,4,strtoupper(isset($dataTeacherID['teacherids_details']) ? $dataTeacherID['teacherids_details'] : ""),'B',0,'L');
 $pdf->Cell(35,4,"",0,0,'L');
 $pdf->Cell(40,4,"ID No.",0,0,'L');
 $pdf->Cell(40,4,strtoupper($dataSpouse['teachCont_idno']),'B',1,'L');
 
 $pdf->Cell(40,4,"Date Issued:",0,0,'L');
-$pdf->Cell(40,4,($dataTeacherID['teacherids_date_issued']==""?"":date('m-d-Y',strtotime($dataTeacherID['teacherids_date_issued'])+8.0*3600)),'B',0,'L');
+$pdf->Cell(40,4,(isset($dataTeacherID['teacherids_date_issued'])?date('m-d-Y',strtotime($dataTeacherID['teacherids_date_issued'])+8.0*3600) : ""),'B',0,'L');
 $pdf->Cell(35,4,"",0,0,'L');
 $pdf->Cell(40,4,"Date Issued:",0,0,'L');
 $pdf->Cell(40,4,($dataSpouse['teachCont_issuedate']=="" || $dataSpouse['teachCont_issuedate']=="0000-00-00" || $dataSpouse['teachCont_issuedate']=="0001-01-01"?"":date('m-d-Y',strtotime($dataSpouse['teachCont_issuedate'])+8.0*3600)),'B',1,'L');

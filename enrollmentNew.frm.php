@@ -77,6 +77,14 @@ elseif($dataEnrollment['enrol_status1']=="INACTIVE" && $dataEnrollment['enrol_st
 	$status2 = "REGULAR";
 	$ti_status  = 0;
 	$remarks = $dataEnrollment['enrol_remarks'];
+} else {
+	$level = "";
+	$enrol_schoolyears = "";
+	$section = "";
+	$status1 = "";
+	$status2 = "";
+	$ti_status  = 0;
+	$remarks = "";
 }
 
 ?>

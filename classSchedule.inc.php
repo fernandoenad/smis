@@ -50,7 +50,7 @@
 				<li class="active">Section <?php echo $dataSection['section_name']; ?></li>
 				<div class="btn-toolbar  pull-right">
 					<?php if($dataSection['section_level']>10){ ?>
-					<a <?php echo ($_SESSION['user_role']==2?"disabled=disabled":"");?> <?php echo (substr($_GET['classProfile'],0,2)=="Z_"?"disabled":"");?> href="scheduleNew.frm.php?classProfile=<?php echo $_GET['classProfile'];?>&enrol_sy=<?php echo $_GET['enrol_sy'];?>&section_no=<?php echo $_GET['section_no'];?>&type=irr" title="Off Semester Offering" class="btn  btn-xs  btn-default" data-toggle="modal" data-target="#modal-medium" data-backdrop="static" data-keyboard="false">
+					<a <?php echo ($_SESSION['user_role']==2?"disabled=disabled":"");?> <?php echo (isset($_GET['classProfile']) && substr($_GET['classProfile'],0,2)=="Z_"?"disabled":"");?> href="scheduleNew.frm.php?classProfile=<?php echo (isset($_GET['classProfile']) ? $_GET['classProfile'] : "");?>&enrol_sy=<?php echo (isset($_GET['enrol_sy']) ? $_GET['enrol_sy'] : "");?>&section_no=<?php echo $_GET['section_no'];?>&type=irr" title="Off Semester Offering" class="btn  btn-xs  btn-default" data-toggle="modal" data-target="#modal-medium" data-backdrop="static" data-keyboard="false">
 					Off Semester Offering <span class="glyphicon glyphicon-plus"></span></a>
 					<?php } ?>
 					<a <?php echo (substr($dataSection['section_name'],0,2)=="Z_"?"disabled":"");?> href="sched.scr.php?MassSched=Yes&classProfile=<?php echo $_GET['classProfile'];?>&section_no=<?php echo $_GET['section_no'];?>" title="Mass Loading of Schedules" class="btn  btn-xs  btn-default" onClick="return confirm('This will load all subjects from your active curriculum.')">
