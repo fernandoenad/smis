@@ -2,8 +2,13 @@
 
 // Credentials
 $servername = "localhost";
-$username = "fenad";
-$password = "fenad";
+if($_SERVER['HTTP_HOST'] == "sanhs"){
+    $username = "root";
+    $password = "";
+} else {
+    $username = "fenad";
+    $password = "fenad";  
+}
 $dbname = "sanhsmis";
 
 // Create connection
