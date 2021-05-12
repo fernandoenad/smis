@@ -17,6 +17,7 @@ class PDF extends FPDF{
 		global $current_school_address;
 		
 		$this->Image('./assets/images/sanhs_logo.png',5,5,10);
+		$this->Image('./assets/images/sanhs_logo_1.png',50,10,110);
 		$this->SetFont('Courier','B',8);
 		$this->Cell(100,-4,"   ".$current_school_name,0,1);
 		$this->SetFont('Courier','',8);
@@ -236,6 +237,7 @@ while($dataStudent = dbarray($checkStudent)){
 	$pdf->Cell(80,2,"School Registrar",0,1,'C');
 	*/
 	$pdf->Ln();
+	
 	
 }
 $pdf->Output();

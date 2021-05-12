@@ -421,8 +421,8 @@ $dataStudent = dbarray($resultStudent);
 		<tr><td>
 			<table width="100%">
 				<tr><td align="center"><h2>CERTIFICATION</h2></td></tr>
-				<tr><td align="left">I CERTIFY that this is a true record of <strong><u><?php echo strtoupper($dataStudent['stud_fname']." ".($dataStudent['stud_mname']=="-"?"":$dataStudent['stud_mname'])." ".$dataStudent['stud_lname']." ".$dataStudent['stud_xname']);?></u></strong> with LRN <strong><u><?php echo $dataStudent['stud_lrn'];?></u></strong> and that he/she is  eligible for admission to <u><input type="text" style="width: 50px; border: 0px; font-weight: bold !important; font-size: 10px"" value="Grade <?php echo ($dataEnroll['enrol_status2']=="PROMOTED"?($dataEnroll['enrol_level']+1).".":$dataEnroll['enrol_level'].".");?>"></u></td></tr>
-				<tr><td align="left">Name of School: <strong><u><?php echo $current_school_name;?></u></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; School ID: <strong><u><?php echo $current_school_code;?></u></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Last School Year Attended: <strong><u><?php echo $dataEnroll['enrol_sy'];?>-<?php echo $dataEnroll['enrol_sy']+1;?></u></strong></td></tr>
+				<tr><td align="left">I CERTIFY that this is a true record of <strong><u><?php echo strtoupper($dataStudent['stud_fname']." ".($dataStudent['stud_mname']=="-"?"":$dataStudent['stud_mname'])." ".$dataStudent['stud_lname']." ".$dataStudent['stud_xname']);?></u></strong> with LRN <strong><u><?php echo $dataStudent['stud_lrn'];?></u></strong> and that he/she is  eligible for admission to <u><input type="text" style="width: 50px; border: 0px; font-weight: bold !important; font-size: 10px"" value="Grade _______________"></u></td></tr>
+				<tr><td align="left">Name of School: <strong><u>_______________________________________</u></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; School ID: <strong><u>__________</u></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Last School Year Attended: <strong><u>_________________</u></strong></td></tr>
 				<tr><td align="left"></td></tr>
 				<tr><td align="left">
 				<table width="100%">
