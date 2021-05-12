@@ -12,11 +12,11 @@ if(isset($_GET['UpdateGrades']) && $_GET['UpdateGrades']=="Yes"){
 	//$grade_remarks = $_POST['grade_remarks'];
 	$count_grade_no = count($_POST['grade_no']);
 	for($i=0; $i<$count_grade_no; $i++){
-		$_no = mysqli_real_escape_string($conn, $grade_no[$i]);
-		$_q1 = mysqli_real_escape_string($conn, $grade_q1[$i]);
-		$_q2 = mysqli_real_escape_string($conn, $grade_q2[$i]);
-		$_q3 = mysqli_real_escape_string($conn, $grade_q3[$i]);
-		$_q4 = mysqli_real_escape_string($conn, $grade_q4[$i]);
+		$_no = ($grade_no[$i]);
+		$_q1 = ($grade_q1[$i]);
+		$_q2 = ($grade_q2[$i]);
+		$_q3 = ($grade_q3[$i]);
+		$_q4 = ($grade_q4[$i]);
 		//$_final = mysql_escape_string($grade_final[$i]);
 		//$_remarks = mysql_escape_string($grade_remarks[$i]);
 		$result1 = dbquery("UPDATE grade SET grade_q1='".$_q1."', grade_q2='".$_q2."', grade_q3='".$_q3."', grade_q4='".$_q4."' WHERE grade_no='".$_no."'");	
@@ -62,11 +62,11 @@ if(isset($_GET['UpdateStudentGrades']) && $_GET['UpdateStudentGrades']=="Yes"){
 	$grade_q4 = $_POST['grade_q4'];
 	//$grade_final = $_POST['grade_final'];
 	//$grade_remarks = $_POST['grade_remarks'];
-		$_no = mysqli_real_escape_string($conn, $grade_no);
-		$_q1 = mysqli_real_escape_string($conn,$grade_q1);
-		$_q2 = mysqli_real_escape_string($conn,$grade_q2);
-		$_q3 = mysqli_real_escape_string($conn,$grade_q3);
-		$_q4 = mysqli_real_escape_string($conn,$grade_q4);
+		$_no = ($grade_no);
+		$_q1 = ($grade_q1);
+		$_q2 = ($grade_q2);
+		$_q3 = ($grade_q3);
+		$_q4 = ($grade_q4);
 		//$_final = mysql_escape_string($grade_final);
 		//$_remarks = mysql_escape_string($grade_remarks);
 		$result1 = dbquery("UPDATE grade SET grade_q1='".$_q1."', grade_q2='".$_q2."', grade_q3='".$_q3."', grade_q4='".$_q4."', grade_final='".$_final."', grade_remarks='".$_remarks."' WHERE grade_no='".$_no."'");	
