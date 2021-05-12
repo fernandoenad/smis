@@ -99,6 +99,8 @@ require('maincore.php');
 		<th colspan="2">Subject Area & Title<br><br><br></th>
 		<th colspan="2">Subject Area & Title<br><br><br></th>
 		<th rowspan="3" width="8%">REMARKS/ACTION TAKEN <br>(Please refer to the legend on last page)</th>
+		<th rowspan="3" width="8%">Distribution</th>
+		<th rowspan="3" width="8%">Retrieval</th>
 	</tr>
 	<tr>
 		<th colspan="2">Date</th>
@@ -164,6 +166,8 @@ require('maincore.php');
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
+		<td></td>
 	</tr>
 	<?php 
 		$i++;
@@ -173,6 +177,8 @@ require('maincore.php');
 	<tr height="25">
 		<td align="right"><strong><?php echo $i-1;?></strong></td>
 		<td align="center"><strong><=== MALE | TOTAL Per Day ===></strong></td>
+		<td></td>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -225,6 +231,8 @@ require('maincore.php');
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
+		<td></td>
 	</tr>
 	<?php 
 		$i++;
@@ -255,10 +263,14 @@ require('maincore.php');
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
+		<td></td>
 	</tr>
 	<tr height="25">
 		<td align="right"><strong><?php echo $m+$f;?></strong></td>
 		<td align="center"><strong>Combined | TOTAL Per Day</strong></td>
+		<td></td>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
