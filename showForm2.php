@@ -54,22 +54,21 @@ require('maincore.php');
 					<td></td>
 					<td width="8%" align="right"><font size="1">School Year &nbsp;</td>
 					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px"><font size="1"><?php echo $_GET['enrol_sy'];?>-<?php echo $_GET['enrol_sy']+1;?></td>
-					<td width="5%"></td>
-					<td width="8%" align="right"></td>
-					<td align="right" colspan="2"><font size="1">For the Month of &nbsp;</td>
+					<td align="right" ><font size="1">For the Month of &nbsp;</td>
+					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px">
+					</td>
+					<td width="8%" align="right">Learner Attendance Conversion Tool</td>
 					<td align="center" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px">
 						<font size="1">			
-						<?php 
-						//echo $mysqldate = date("F");
-						?>
+						LACT1		
 					</td>
+					
 				</tr>
 				<tr height="25">
 					<td align="right" border="1"><font size="1">School Name &nbsp;</td>
 					<td align="center" colspan="3" style="BORDER-RIGHT: black solid 1px; BORDER-TOP: black solid 1px; BORDER-LEFT: black solid 1px; BORDER-BOTTOM: black solid 1px"><font size="1"><?php echo $current_school_full;?></td>
 					<td align="right"><font size="1"></td>
 					<td align="center"></td>
-					<td></td>
 					<td align="right"><font size="1">Grade Level &nbsp;</td>
 					<?php
 					$resultLevel = dbquery("SELECT * FROM section WHERE (section_name='".$_GET['classProfile']."' AND section_sy='".$_GET['enrol_sy']."')");
